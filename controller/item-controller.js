@@ -20,9 +20,11 @@ exports.addNewItem = (req, res) => {
       }
   });
 };
+
 //creating controller function
 exports.getAllItems = (req, res) => {
   Item.find({}, function (err, docs) {
     res.json(docs);
   });
 };
+
