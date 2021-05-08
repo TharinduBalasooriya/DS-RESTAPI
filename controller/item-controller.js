@@ -8,6 +8,7 @@ exports.addNewItem = (req, res) => {
   newItem.Quantity = req.body.Quantity;
   newItem.Price = req.body.Price;
   newItem.Status = req.body.Status;
+  newItem.ImgUrl = req.body.ImgUrl;
 
   newItem.save(function (err) {
     if (err) {
@@ -45,6 +46,7 @@ exports.updateItem = async (req, res) => {
     item.Quantity = req.body.Quantity;
     item.Price = req.body.Price;
     item.Status = req.body.Status;
+    item.ImgUrl = req.body.ImgUrl;
 
     const i1 = await item.save();
     res.json(i1);

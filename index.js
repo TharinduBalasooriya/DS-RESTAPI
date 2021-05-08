@@ -1,9 +1,10 @@
 let express = require("express");
 let app = express();
+const cors = require("cors");
 let router = require("./api-routes");
 let mongoose = require("mongoose");
-const port = 3000;
-const uri = "'mongodb://localhost/test";
+const port = 5000;
+const uri = "'mongodb://localhost/ds";
 
 app.get("/", (req, res) => {
   res.send("Hello world");
@@ -16,6 +17,7 @@ app.use(
     extended: true,
   })
 );
+app.use(cors());
 app.use(express.json());
 
 mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true });

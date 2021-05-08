@@ -1,15 +1,14 @@
-let mongoose = require('mongoose')
+let mongoose = require("mongoose");
 
 //creating schema for Items
 
 const itemSchema = new mongoose.Schema({
-    Code : String,
-    Name : String,
-    Quantity: Number,
-    Price : Number,
-    Status : String
+  Code: String,
+  Name: String,
+  Quantity: Number,
+  Price: Number,
+  Status: String,
+  ImgUrl: String,
+});
 
-
-})
-
-module.exports =  mongoose.model('ItemModel',itemSchema);
+module.exports = mongoose.model("ItemModel", itemSchema);
