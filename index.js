@@ -2,7 +2,7 @@ let express = require("express");
 let app = express();
 let router = require("./api-routes");
 let mongoose = require("mongoose");
-const port = 3000;
+const port = 5000;
 const uri = "'mongodb://localhost/test";
 
 app.get("/", (req, res) => {
