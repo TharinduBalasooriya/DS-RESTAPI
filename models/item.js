@@ -9,6 +9,7 @@ const itemSchema = new mongoose.Schema({
   Price: Number,
   Status: String,
   ImgUrl: String,
+  SellerId :String
 });
 
 module.exports = mongoose.model("ItemModel", itemSchema);

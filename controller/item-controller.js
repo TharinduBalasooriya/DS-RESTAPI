@@ -9,13 +9,14 @@ exports.addNewItem = (req, res) => {
   newItem.Price = req.body.Price;
   newItem.Status = req.body.Status;
   newItem.ImgUrl = req.body.ImgUrl;
+  newItem.SellerId = req.body.SellerId;
 
   newItem.save(function (err) {
     if (err) {
       res.json(err);
     } else {
       res.json({
-        message: "Contact created",
+        message: "New Item Created",
         data: newItem,
       });
     }

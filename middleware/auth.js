@@ -7,7 +7,7 @@ let verifyToken =  function(req,res,next){
     if(!token){
         return res.status(403).send({message:"No token available!!!"});
     }
-    jwt.verify(token,'key',(err,decode)=>{
+    jwt.verify(token,'key',(err,decoded)=>{
 
         if(err){
             return res.status(401).send({message:"Unotherized user"});

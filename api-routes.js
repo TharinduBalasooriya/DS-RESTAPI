@@ -5,13 +5,13 @@ let itemController = require("./controller/item-controller");
 let cartController = require("./controller/cart-controller");
 let usercontroller = require("./controller/user-controller")
 let verify = require("./middleware/verifySignUP")
-
+let authMiddleWare =  require("./middleware/auth")
 router.get("/", (req, res) => {
   res.send("I am on API");
 });
 
 //get all Items
-router.route("/items").get(itemController.getAllItems);
+router.route("/items").get(authMiddleWare,itemController.getAllItems);
 
 //findItembyId
 router.route("/items/:id").get(itemController.getItem);
