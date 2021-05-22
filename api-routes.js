@@ -3,6 +3,8 @@
 let router = require("express").Router();
 let itemController = require("./controller/item-controller");
 let cartController = require("./controller/cart-controller");
+let usercontroller = require("./controller/user-controller")
+let verify = require("./middleware/verifySignUP")
 
 router.get("/", (req, res) => {
   res.send("I am on API");
@@ -27,5 +29,10 @@ router.route("/items/:id").patch(itemController.updateItem);
 router.route("/cart/:id").get(cartController.getCartItems);
 router.route("/cart/:id").post(cartController.addToCart);
 router.route("/cart/:userId/:itemId").delete(cartController.removeFromCart);
+
+//userroutes
+//create new user profile
+router.route("/user").post(verify.checkDuplicateUsernameOrEmail,usercontroller.signUP)
+router.route("/auth/login").post(usercontroller.signIn)
 
 module.exports = router;
